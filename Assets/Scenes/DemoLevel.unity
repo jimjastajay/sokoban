@@ -467,7 +467,7 @@ MonoBehaviour:
   gridBounds: {fileID: 1128588813}
   debugY: 4
   raycastCheckY: 2
-  debugMode: 1
+  debugMode: 0
 --- !u!114 &340087021
 MonoBehaviour:
   m_ObjectHideFlags: 0
