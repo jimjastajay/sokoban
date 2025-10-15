@@ -5,8 +5,6 @@ TagManager:
   serializedVersion: 3
   tags:
   - block
-  - bounds
-  - goal
   layers:
   - Default
   - TransparentFX
