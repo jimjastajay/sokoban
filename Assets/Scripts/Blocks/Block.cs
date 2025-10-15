@@ -20,12 +20,8 @@ public class Block : MonoBehaviour
     [Header("Block Attributes")]
     #region Block Attributes
     public bool canMove;
-    public bool canStick;
-    GridManager gridManager;
+    protected GridManager gridManager;
     #endregion
-
-    [HideInInspector]
-    public List<Block> stuckObj = new List<Block>();
 
     [HideInInspector]
     public Vector2Int gridPos, moveChange;
@@ -48,6 +44,34 @@ public class Block : MonoBehaviour
     }
 
     #region Movement Methods
+    /// <summary>
+    /// Checks if it is possible to move in the grid
+    /// </summary>
+    public virtual bool CheckMove(int _deltaX, int _deltaY)
+    {
+        if (canMove && InGrid(gridPos.x + _deltaX, gridPos.y + _deltaY))
+        {
+            Cell checkCell = gridManager.gridList[gridPos.x + _deltaX][gridPos.y + _deltaY].GetComponent<Cell>();
+            if (!checkCell.CheckContainObj() ||
+            CheckHit(checkCell.ContainObj.GetComponent<Block>(), _deltaX, _deltaY))
+            {
+                StartMove(checkCell, _deltaX, _deltaY);
+                BroadcastMessage("BlockMoved", SendMessageOptions.DontRequireReceiver);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Checks how close the target position is to a compared position
+    /// </summary>
+    public bool CheckLerpDist(Vector3 _comparePos, float _maxVal)
+    {
+        if (Vector3.Distance(_comparePos, targetPos) < _maxVal) return true;
+        return false;
+    }
+
     /// <summary>
     /// Lerps block from one position to another based on animation curve set in the inspector
     /// </summary>
@@ -79,34 +103,6 @@ public class Block : MonoBehaviour
     {
         transform.position = targetPos;
         State = MoveStates.idle;
-    }
-
-    /// <summary>
-    /// Checks if it is possible to move in the grid
-    /// </summary>
-    protected virtual bool CheckMove(int _deltaX, int _deltaY)
-    {
-        if (canMove && InGrid(gridPos.x + _deltaX, gridPos.y + _deltaY))
-        {
-            Cell checkCell = gridManager.gridList[gridPos.x + _deltaX][gridPos.y + _deltaY].GetComponent<Cell>();
-            if (!checkCell.CheckContainObj() ||
-            CheckHit(checkCell.ContainObj.GetComponent<Block>(), _deltaX, _deltaY))
-            {
-                StartMove(checkCell, _deltaX, _deltaY);
-                if (stuckObj.Count > 0) MoveStuckObjs(_deltaX, _deltaY);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /// <summary>
-    /// Checks how close the target position is to a compared position
-    /// </summary>
-    public bool CheckLerpDist(Vector3 _comparePos, float _maxVal)
-    {
-        if (Vector3.Distance(_comparePos, targetPos) < _maxVal) return true;
-        return false;
     }
 
     /// <summary>
@@ -146,42 +142,6 @@ public class Block : MonoBehaviour
     {
         if (_hitObj.CheckMove(_deltaX, _deltaY)) return true;
         return false;
-    }
-
-    #endregion
-
-    #region Sticky Object Methods
-    /// <summary>
-    /// Moves an sticky blocks attached to this block
-    /// </summary>
-    private void MoveStuckObjs(int _gridX, int _gridY)
-    {
-        List<int> _removeList = new List<int>();
-        for (int i = 0; i < stuckObj.Count; i++)
-        {
-            Vector2Int dir = stuckObj[i].gridPos - gridPos;
-            if (dir != moveChange)
-            {
-                if (!stuckObj[i].CheckMove(_gridX, _gridY))
-                {
-                    _removeList.Add(i);
-                    stuckObj[i].gameObject.GetComponent<Sticky>().LeadBlock = null;
-                }
-            }
-
-        }
-        RemoveStuckObjs(_removeList);
-    }
-    
-    /// <summary>
-    /// Removes any sticky blocks attached to this block
-    /// </summary>
-    private void RemoveStuckObjs(List<int> _removeList)
-    {
-        foreach (int obj in _removeList)
-        {
-            stuckObj.RemoveAt(obj);
-        }
     }
 
     #endregion

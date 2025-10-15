@@ -10,9 +10,9 @@ public class Sticky : Block
         new Vector2Int(0, -1)
     };
 
-    private Block leadBlock;
+    public Stickable leadBlock;
 
-    public Block LeadBlock{
+    public Stickable LeadBlock{
         get => leadBlock;
         set
         {
@@ -36,17 +36,19 @@ public class Sticky : Block
         }
     }
 
+    /// <summary>
+    /// Checks all orthogonal cells to see if there is a block this block can stick to
+    /// </summary>
     private void CheckAdjacent()
     {
         foreach (Vector2Int _dir in touchDirs)
         {
-            GameObject stickTo = GridManager.gridList[gridPos.x + _dir.x][gridPos.y + _dir.y].GetComponent<Cell>().ContainObj;
-            if (stickTo != null)
+            Cell checkCell = gridManager.gridList[gridPos.x + _dir.x][gridPos.y + _dir.y].GetComponent<Cell>();
+            if (checkCell.ContainObj != null && checkCell.ContainObj.TryGetComponent<Stickable>(out Stickable stickTo))
             {
-                Block blockScript = stickTo.GetComponent<Block>();
-                if (blockScript.CheckLerpDist(stickTo.transform.position, 0.2f))
+                if (Vector3.Distance(transform.position, stickTo.transform.position) <= 1)
                 {
-                    LeadBlock = blockScript;
+                    LeadBlock = stickTo;
                 }
             }
         }
