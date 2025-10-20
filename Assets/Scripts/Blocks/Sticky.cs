@@ -1,26 +1,29 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class Sticky : Block
 {
     private Vector2Int[] touchDirs = {
-        new Vector2Int(1, 0),
-        new Vector2Int(-1, 0),
-        new Vector2Int(0, 1),
+        new Vector2Int(1, 0), 
+        new Vector2Int(-1, 0), 
+        new Vector2Int(0, 1), 
         new Vector2Int(0, -1)
     };
 
-    public Stickable leadBlock;
+    public Block leadBlock;
 
-    public Stickable LeadBlock{
+    public Block LeadBlock
+    {
         get => leadBlock;
         set
         {
-            leadBlock = null;
-            if(value != null) value.stuckObj.Add(this);
             leadBlock = value;
         }
     }
+
+    private int leadDirIndex = -1;
+    bool leadMoved = false;
 
     protected override void Start()
     {
@@ -28,12 +31,38 @@ public class Sticky : Block
         CheckAdjacent();
     }
 
-    private void Update()
+    public override bool CheckMove(int _deltaX, int _deltaY)
     {
-        if(State == MoveStates.idle && LeadBlock == null)
+        if(state == MoveStates.idle)
         {
-            CheckAdjacent();
+            if (LeadBlock != null && !leadMoved)
+            {
+                if (!LeadBlock.CheckMove(_deltaX, _deltaY))
+                {
+                    leadDirIndex = -1;
+                    LeadBlock = null;
+                }
+            }
+            
         }
+        return base.CheckMove(_deltaX, _deltaY);
+    }
+
+    protected override void GridChanged()
+    {
+        CheckAdjacent();
+        if (LeadBlock != null)
+        {
+            if (LeadBlock.gridPos - gridPos != touchDirs[leadDirIndex])
+            {
+                leadMoved = true;
+                if(!CheckMove(LeadBlock.moveChange.x, LeadBlock.moveChange.y)){
+                    leadDirIndex = -1;
+                    LeadBlock = null;
+                }
+                leadMoved = false;
+            }
+        } 
     }
 
     /// <summary>
@@ -41,17 +70,20 @@ public class Sticky : Block
     /// </summary>
     private void CheckAdjacent()
     {
-        foreach (Vector2Int _dir in touchDirs)
+        if (LeadBlock == null)
         {
-            Cell checkCell = gridManager.gridList[gridPos.x + _dir.x][gridPos.y + _dir.y].GetComponent<Cell>();
-            if (checkCell.ContainObj != null && checkCell.ContainObj.TryGetComponent<Stickable>(out Stickable stickTo))
+            for (int i = 0; i < touchDirs.Length; i++)
             {
-                if (Vector3.Distance(transform.position, stickTo.transform.position) <= 1)
+                Cell checkCell = gridManager.gridList[gridPos.x + touchDirs[i].x][gridPos.y + touchDirs[i].y].GetComponent<Cell>();
+                if (checkCell.ContainObj != null && checkCell.ContainObj.GetComponent<Block>().canMove)
                 {
-                    LeadBlock = stickTo;
+                    leadDirIndex = i;
+                    LeadBlock = checkCell.ContainObj.GetComponent<Block>();
+                    break;
                 }
             }
         }
+        
     }
 
 }

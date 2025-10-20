@@ -139,9 +139,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &131627120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,9 +164,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &144805402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,9 +189,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &180976231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,9 +214,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &185903444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,9 +239,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &203953818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,9 +264,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &248740328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,9 +289,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!1 &317932942
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,9 +410,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &355398680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,9 +435,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &365716957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,9 +460,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!1 &443785709
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,9 +606,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &562331570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,9 +631,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &592513245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,9 +656,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &615453609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,9 +681,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &616108422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,9 +706,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &664066067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -701,9 +731,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &666156148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,9 +756,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &689153339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,9 +781,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!1 &714972322
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,9 +943,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &772663741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,9 +968,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &800884474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -953,9 +993,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &851878042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,9 +1018,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &980893478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,9 +1043,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &1008401841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,9 +1068,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!1 &1128588813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,9 +1201,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &1323482035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1176,9 +1226,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &1325936701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,9 +1251,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!1 &1335153000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,9 +1377,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &1570679382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1346,9 +1402,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &1819274302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1369,9 +1427,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &1848163546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1392,9 +1452,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &1869593477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1415,9 +1477,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &1892341783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1438,9 +1502,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &1906297416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1461,9 +1527,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &1982434409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1484,9 +1552,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!114 &2081012610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1507,9 +1577,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 0
   lerpSnapDist: 0
+  targetPos: {x: 0, y: 0, z: 0}
   canMove: 0
   gridPos: {x: 0, y: 0}
   moveChange: {x: 0, y: 0}
+  state: 0
 --- !u!4 &543450651619024020
 Transform:
   m_ObjectHideFlags: 0
@@ -2805,7 +2877,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1507184161707282449, guid: a7fd62b896180485fa22c64e253d5e6f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1507184161707282449, guid: a7fd62b896180485fa22c64e253d5e6f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2813,7 +2885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1507184161707282449, guid: a7fd62b896180485fa22c64e253d5e6f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1507184161707282449, guid: a7fd62b896180485fa22c64e253d5e6f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5530,7 +5602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8857211265879534646, guid: 2fa3846e557064f4aa7914ccd93bd51f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8857211265879534646, guid: 2fa3846e557064f4aa7914ccd93bd51f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5625,7 +5697,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3597829802364090955, guid: f51cbbce7068b483cae8c3fca45c8e23, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5640,7 +5713,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 287951171314832761, guid: 6729e5cc0d8ac4c30986f218f542e143, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 287951171314832761, guid: 6729e5cc0d8ac4c30986f218f542e143, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5648,7 +5721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 287951171314832761, guid: 6729e5cc0d8ac4c30986f218f542e143, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 287951171314832761, guid: 6729e5cc0d8ac4c30986f218f542e143, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5682,7 +5755,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smooth
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3697565144390560032, guid: 6729e5cc0d8ac4c30986f218f542e143, type: 3}
+      propertyPath: lerpSnapDist
+      value: 0.1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8244033548029671787, guid: 6729e5cc0d8ac4c30986f218f542e143, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5697,7 +5775,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2060568081434923701, guid: 7e90a684241f24e2ca93f0681ad73709, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2060568081434923701, guid: 7e90a684241f24e2ca93f0681ad73709, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5705,7 +5783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2060568081434923701, guid: 7e90a684241f24e2ca93f0681ad73709, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2060568081434923701, guid: 7e90a684241f24e2ca93f0681ad73709, type: 3}
       propertyPath: m_LocalRotation.w

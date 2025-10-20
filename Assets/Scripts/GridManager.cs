@@ -90,7 +90,7 @@ public class GridManager : MonoBehaviour
             }
         }
     }
-    
+
     /// <summary>
     /// Includes grid coordinate text for each cell in the game view
     /// </summary>
@@ -99,5 +99,10 @@ public class GridManager : MonoBehaviour
         _pos.y = debugY;
         GameObject newLabel = Instantiate(label, _pos, Quaternion.identity, canvas.transform);
         newLabel.GetComponent<TMP_Text>().text = _gridX + "," + _gridY;
+    }
+    
+    public void UpdateGrid()
+    {
+        BroadcastMessage("GridChanged");
     }
 }

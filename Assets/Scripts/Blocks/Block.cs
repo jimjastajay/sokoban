@@ -14,7 +14,9 @@ public class Block : MonoBehaviour
     private float lerpSnapDist;
     private float lerpTime = 0;
     private Vector3 startPos = Vector3.zero;
-    private Vector3 targetPos = Vector3.zero;
+    public Vector3 targetPos = Vector3.zero;
+    // reference to the currently running move coroutine so it can be stopped safely
+    private Coroutine moveCoroutine = null;
     #endregion
 
     [Header("Block Attributes")]
@@ -29,10 +31,11 @@ public class Block : MonoBehaviour
     public enum MoveStates
     {
         idle,
+        attemptingMove,
         moving
     }
 
-    private MoveStates state;
+    public MoveStates state;
     public MoveStates State { get => state; set => state = value; }
 
     
@@ -49,16 +52,21 @@ public class Block : MonoBehaviour
     /// </summary>
     public virtual bool CheckMove(int _deltaX, int _deltaY)
     {
-        if (canMove && InGrid(gridPos.x + _deltaX, gridPos.y + _deltaY))
+        if (State == MoveStates.idle)
         {
-            Cell checkCell = gridManager.gridList[gridPos.x + _deltaX][gridPos.y + _deltaY].GetComponent<Cell>();
-            if (!checkCell.CheckContainObj() ||
-            CheckHit(checkCell.ContainObj.GetComponent<Block>(), _deltaX, _deltaY))
+            State = MoveStates.attemptingMove;
+            if (canMove && InGrid(gridPos.x + _deltaX, gridPos.y + _deltaY))
             {
-                StartMove(checkCell, _deltaX, _deltaY);
-                BroadcastMessage("BlockMoved", SendMessageOptions.DontRequireReceiver);
-                return true;
+                Cell checkCell = gridManager.gridList[gridPos.x + _deltaX][gridPos.y + _deltaY].GetComponent<Cell>();
+                if (!checkCell.CheckContainObj() ||
+                CheckHit(checkCell.ContainObj.GetComponent<Block>(), _deltaX, _deltaY))
+                {
+                    StartMove(checkCell, _deltaX, _deltaY);
+                    BroadcastMessage("BlockMoved", new Vector2Int(_deltaX, _deltaY), SendMessageOptions.DontRequireReceiver);
+                    return true;
+                }
             }
+            State = MoveStates.idle;
         }
         return false;
     }
@@ -78,8 +86,8 @@ public class Block : MonoBehaviour
     protected Vector3 Move()
     {
         lerpTime += Time.deltaTime * speed;
-        float percent = moveCurve.Evaluate(lerpTime);
-        Vector3 newPos = Vector3.LerpUnclamped(startPos, targetPos, percent);
+        float percent = Mathf.Clamp01(moveCurve.Evaluate(lerpTime));
+        Vector3 newPos = Vector3.Lerp(startPos, targetPos, percent);
         return newPos;
     }
 
@@ -88,12 +96,16 @@ public class Block : MonoBehaviour
     /// </summary>
     protected virtual void StartMove(Cell _newParent, int _deltaX, int _deltaY)
     {
+        State = MoveStates.moving;
         moveChange.Set(_deltaX, _deltaY);
         RefreshGridData(_newParent.gameObject, gridPos.x + _deltaX, gridPos.y + _deltaY);
         StartLerp(transform.position, transform.parent.transform.position);
-        StopCoroutine(MoveLoop());
-        StartCoroutine(MoveLoop());
-        State = MoveStates.moving;
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+            moveCoroutine = null;
+        }
+        moveCoroutine = StartCoroutine(MoveLoop());
     }
 
     /// <summary>
@@ -120,19 +132,25 @@ public class Block : MonoBehaviour
     /// </summary>
     private IEnumerator MoveLoop()
     {
-        StartLerp(transform.position, transform.parent.transform.position);
-        while (Vector3.Distance(transform.position, targetPos) > 0)
+        const float epsilon = 0.0001f;
+        while (Vector3.Distance(transform.position, targetPos) > epsilon)
         {
             transform.position = Move();
             if (Vector3.Distance(transform.position, targetPos) < lerpSnapDist)
             {
                 FinishMove();
+                break;
             }
             else
             {
                 yield return null;
             }
         }
+        if (Vector3.Distance(transform.position, targetPos) <= lerpSnapDist)
+        {
+            FinishMove();
+        }
+        moveCoroutine = null;
     }
 
     /// <summary>
@@ -140,7 +158,7 @@ public class Block : MonoBehaviour
     /// </summary>
     private bool CheckHit(Block _hitObj, int _deltaX, int _deltaY)
     {
-        if (_hitObj.CheckMove(_deltaX, _deltaY)) return true;
+        if (GetComponent<Slidey>() == null && _hitObj.CheckMove(_deltaX, _deltaY)) return true;
         return false;
     }
 
@@ -175,6 +193,7 @@ public class Block : MonoBehaviour
     {
         if (transform.parent.TryGetComponent<Cell>(out Cell _pCell)) _pCell.RemoveContainObj();
         SetNewGridPos(_newParent.gameObject, _newX, _newY);
+        gridManager.UpdateGrid();
     }
 
     /// <summary>
@@ -185,6 +204,8 @@ public class Block : MonoBehaviour
         gridManager = _gM;
         SetNewGridPos(_parent, _gridX, _gridY);
     }
+
+    protected virtual void GridChanged(){}
 
     #endregion 
 }
